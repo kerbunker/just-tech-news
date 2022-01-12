@@ -1,6 +1,3 @@
-const { response } = require("express");
-const { Post } = require("../../models");
-
 async function signupFormHandler(event) {
   event.preventDefault();
 
@@ -9,14 +6,14 @@ async function signupFormHandler(event) {
   const password = document.querySelector("#password-signup").value.trim();
 
   if (username && email && password) {
-    const reponse = await fetch("/api/users", {
+    const response = await fetch("/api/users", {
       method: "post",
       body: JSON.stringify({
         username,
         email,
         password
       }),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }
     });
     
     // check the response status
