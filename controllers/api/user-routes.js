@@ -72,7 +72,6 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  console.log('trying to log in');
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
@@ -92,7 +91,6 @@ router.post('/login', (req, res) => {
     }
 
     req.session.save(() => {
-      console.log('logged in? I think?');
       // declare session varialbles
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
